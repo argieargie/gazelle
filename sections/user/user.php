@@ -305,16 +305,6 @@ echo $Twig->render('user/sidebar-stats.twig', [
     'user'           => $User,
     'viewer'         => $Viewer,
     'visible'        => [
-        'collages+'             => check_paranoia_here('collages+'),
-        'collages'              => check_paranoia_here('collages'),
-        'collagescontrib+'      => check_paranoia_here('collagecontribs+'),
-        'collagecontribs'       => check_paranoia_here('collagecontribs'),
-        'downloaded'            => check_paranoia_here('downloaded'),
-        'invitedcount'          => check_paranoia_here('invitedcount'),
-        'leeching+'             => check_paranoia_here('leeching+'),
-        'leeching'              => check_paranoia_here('leeching'),
-        'perfectflacs+'         => check_paranoia_here('perfectflacs+'),
-        'perfectflacs'          => check_paranoia_here('perfectflacs'),
         'seeding+'              => check_paranoia_here('seeding+'),
         'seeding'               => check_paranoia_here('seeding'),
         'snatched+'             => check_paranoia_here('snatched+'),
@@ -395,46 +385,6 @@ if (check_paranoia_here('uploads')) {
     ]);
 }
 
-if ($OwnProfile || !$User->hasAttr('hide-vote-recent') || $Viewer->permitted('view-release-votes')) {
-    echo $Twig->render('user/recent-vote.twig', [
-        'recent'    => $vote->recent($tgMan),
-        'show_link' => $OwnProfile || !$User->hasAttr('hide-vote-history') || $Viewer->permitted('view-release-votes'),
-        'user_id'   => $UserID,
-    ]);
-}
-
-$FirstCol = true;
-$Collages = (new Gazelle\Manager\Collage)->findPersonalByUserId($UserID);
-foreach ($Collages as $collage) {
-?>
-    <table class="layout recent" id="collage<?=$collage->id()?>_box" cellpadding="0" cellspacing="0" border="0">
-        <tr class="colhead">
-            <td colspan="5">
-                <span style="float: left;">
-                    <?=display_str($collage->name())?> - <a href="collages.php?id=<?=$collage->id()?>" class="brackets">See full</a>
-                </span>
-                <span style="float: right;">
-                    <a href="#" onclick="$('#collage<?=$collage->id()?>_box .images').gtoggle(); this.innerHTML = (this.innerHTML == 'Hide' ? 'Show' : 'Hide'); return false;" class="brackets"><?=$FirstCol ? 'Hide' : 'Show' ?></a>
-                </span>
-            </td>
-        </tr>
-        <tr class="images<?=$FirstCol ? '' : ' hidden'?>">
-<?php
-    $list = array_slice($collage->groupIds(), 0, 5);
-    foreach ($list as $tgroupId) {
-        $tgroup = $tgMan->findById($tgroupId);
-?>
-            <td>
-                <a href="torrents.php?id=<?= $tgroupId ?>">
-                    <img class="tooltip" title="<?= $tgroup->text() ?>" src="<?= $imgProxy->process($tgroup->cover()) ?>" width="107" />
-                </a>
-            </td>
-<?php    } ?>
-        </tr>
-    </table>
-<?php
-    $FirstCol = false;
-}
 ?>
     <!-- for the "jump to staff tools" button -->
     <a id="staff_tools"></a>
