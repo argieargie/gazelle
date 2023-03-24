@@ -211,25 +211,7 @@ if (($Override = check_paranoia_here('torrentcomments++'))) {
                 <li class="tooltip<?=($Override === 2 ? ' paranoia_override' : '')?>" title="<?= number_format($torrentComments) ?> posted">Torrent comments: <?= display_rank($rank, 'comment-t') ?></li>
 <?php
 }
-if (($Override = check_paranoia_here('collagecontribs+'))) {
 ?>
-                <li class="tooltip<?=($Override === 2 ? ' paranoia_override' : '')?>" title="<?=number_format($collageAdditions)?> contributions">Collage contributions: <?= display_rank($rank, 'collage') ?></li>
-<?php
-}
-if (($Override = check_paranoia_here('artistsadded'))) {
-?>
-                <li class="tooltip<?=($Override === 2 ? ' paranoia_override' : '')?>" title="<?=number_format($ArtistsAdded)?> added">Artists added: <?= display_rank($rank, 'artists') ?></li>
-<?php } ?>
-                <li class="tooltip" title="<?=number_format($releaseVotes)?> votes">Release votes cast: <?= display_rank($rank, 'votes') ?></li>
-<?php if ($OwnProfile || $Viewer->permitted('admin_bp_history')) { ?>
-                <li class="tooltip<?= !$OwnProfile && $Viewer->permitted('admin_bp_history') ? ' paranoia_override' : '' ?>" title="<?=number_format($bonusPointsSpent)?> spent">Bonus points spent: <?= display_rank($rank, 'bonus') ?></li>
-<?php
-}
-if (check_paranoia_here(['artistsadded', 'collagecontribs+', 'downloaded', 'requestsfilled_count', 'requestsvoted_bounty', 'torrentcomments++', 'uploaded', 'uploads+', ])) {
-?>
-                <li<?= $User->classLevel() >= 900 ? ' title="Infinite"' : '' ?>><strong>Overall rank: <?= $rank->score() === false ? 'Server busy'
-                    : ($User->classLevel() >= 900 ? '&nbsp;&infin;' : number_format($rank->score() * $User->rankFactor())) ?></strong></li>
-<?php } ?>
             </ul>
         </div>
 <?php if ($Viewer->permitted('users_mod') || $Viewer->permitted('users_view_ips') || $Viewer->permitted('users_view_keys')) { ?>
@@ -309,16 +291,12 @@ echo $Twig->render('user/sidebar-stats.twig', [
         'seeding'               => check_paranoia_here('seeding'),
         'snatched+'             => check_paranoia_here('snatched+'),
         'snatched'              => check_paranoia_here('snatched'),
-        'torrentcomments+'      => check_paranoia_here('torrentcomments+'),
-        'torrentcomments'       => check_paranoia_here('torrentcomments'),
         'requestsfilled_list'   => check_paranoia_here('requestsfilled_list'),
         'requestsfilled_count'  => check_paranoia_here('requestsfilled_count'),
         'requestsfilled_bounty' => check_paranoia_here('requestsfilled_bounty'),
         'requestsvoted_list'    => check_paranoia_here('requestsvoted_list'),
         'requestsvoted_count'   => check_paranoia_here('requestsvoted_count'),
         'requestsvoted_bounty'  => check_paranoia_here('requestsvoted_bounty'),
-        'uniquegroups+'         => check_paranoia_here('uniquegroups+'),
-        'uniquegroups'          => check_paranoia_here('uniquegroups'),
         'uploads+'              => check_paranoia_here('uploads+'),
         'uploads'               => check_paranoia_here('uploads'),
     ],
