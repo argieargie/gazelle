@@ -644,7 +644,7 @@ if ($Viewer->permitted('users_mod') || $Viewer->isStaff()) { ?>
 <?php
     if ($Viewer->permitted('users_disable_posts') || $Viewer->permitted('users_disable_any')) {
         $fm = new Gazelle\Manager\Forum;
-        echo $Twig->render('user/edit-privileges.twig', [
+        /*echo $Twig->render('user/edit-privileges.twig', [
             'asn'     => new Gazelle\Search\ASN,
             'history' => new Gazelle\User\History($User),
             'user'    => $User,
@@ -653,7 +653,7 @@ if ($Viewer->permitted('users_mod') || $Viewer->isStaff()) { ?>
                 'restricted_names' => implode(', ', array_map(function ($id) use ($fm) { $f = $fm->findById($id); $f ? $f->name() : $id; }, $User->forbiddenForums())),
                 'permitted_names'  => implode(', ', array_map(function ($id) use ($fm) { $f = $fm->findById($id); $f ? $f->name() : $id; }, $User->permittedForums())),
             ],
-        ]);
+        ]);*/
     }
 
     if ($User->isInterviewer() || $User->isRecruiter() || $User->isStaff()) {
