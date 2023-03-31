@@ -1,5 +1,12 @@
 @namespace url(http://www.w3.org/1999/xhtml);
 @namespace svg url(http://www.w3.org/2000/svg);
+@import "~@voaii/proxima-nova/index.css";
+@import "~@voaii/proxima-nova/400.css";
+@import "~@voaii/proxima-nova/400-italic.css";
+@import "~@voaii/proxima-nova/latin-400-italic.css";
+@import "~@voaii/proxima-nova/700.css";
+@import "~@voaii/proxima-nova/700-italic.css";
+@import "~@voaii/proxima-nova/latin-700-italic.css";
 
 a:active,
 a:focus,
@@ -50,7 +57,7 @@ h6,
 input,
 select,
 textarea {
-  font-family: 'Open Sans', Helvetica, Arial, Tahoma, "Microsoft Yahei", sans-serif;
+  font-family: 'Proxima Nova', 'Open Sans', Helvetica, Arial, Tahoma, "Microsoft Yahei", sans-serif;
 }
 
 #header ul,
@@ -89,8 +96,8 @@ body {
   background-color: $base-background-color;
   box-sizing: border-box;
   color: $base-text-color;
-  font-size: 12px;
-  line-height: 1.6;
+  font-size: 14px;
+  line-height: 1.3;
   margin: 0 8px;
 }
 
@@ -268,7 +275,7 @@ button,
 input,
 select,
 textarea {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 button,
@@ -492,6 +499,24 @@ table.box2 {
   border-top: 2px solid $a-hover-color;
 }
 
+.forum_index h4, .forum_list h4 {
+    font-size: 14px;
+}
+
+#menu>ul {
+    font-size: 14.5px;
+}
+#userinfo_username #nav_userinfo>a {
+    font-size: 14.5px;
+}
+
+.forum_post td.body {
+  font-size:14.5px;
+}
+.box.news_post {
+    font-size: 14.5px;
+}
+
 .forum_post .avatar {
   padding: 0;
   width: 150px;
@@ -523,7 +548,7 @@ div .forum_post .body img {
 
 .forum_index h4,
 .forum_list h4 {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .forum_index h3,
@@ -624,7 +649,7 @@ div .forum_post .body img {
   display: -ms-flexbox;
   -ms-flex-flow: row nowrap;
   flex-flow: row nowrap;
-  font-size: 13px;
+  font-size: 14.5px;
   overflow: hidden;
   width: calc(100% - 149px);
 }
@@ -658,7 +683,7 @@ div .forum_post .body img {
 
 #userinfo_username #nav_userinfo > a {
   display: block;
-  font-size: 13px;
+  font-size: 14.5px;
   line-height: 50px;
   overflow: hidden;
   text-align: center;
@@ -689,13 +714,13 @@ div .forum_post .body img {
 }
 
 #userinfo_major {
-  font-size: 13px;
+  font-size: 14.5px;
   right: 41px;
   top: -53px;
 }
 
 #userinfo_stats {
-  font-size: 13px;
+  font-size: 14.5px;
   top: -31px;
 }
 
@@ -1056,7 +1081,7 @@ div#flip_view_1 div#similar-artist .name {
 
 .tags a {
   color: $footer-color;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .tags a:hover {
@@ -1199,7 +1224,7 @@ div#flip_view_1 div#similar-artist .name {
 .tooltipster-default .tooltipster-content {
   background-color: $base-background-color;
   color: #c6c9c9;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.4;
   padding: 4px 6px;
 }
@@ -1480,7 +1505,7 @@ ul.collage_images li a > span {
 }
 
 #userform #settings_sections h2 {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.6;
 }
 
@@ -1737,7 +1762,7 @@ blockquote {
 
   #menu > ul > #nav_staff {
     display: inline;
-    font-size: 13px;
+    font-size: 14.5px;
     position: absolute;
     right: 8px;
     top: 29px;
