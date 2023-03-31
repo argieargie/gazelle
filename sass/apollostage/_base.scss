@@ -2632,6 +2632,24 @@ blockquote {
   /* END site header */
 }
 
+.fa-classic, .fa-light, .fa-regular, .fa-solid, .fa-thin, .fal, .far, .fas, .fat {
+    font-family: "Font Awesome 6 Pro";
+}
+
+.fa, .fa-brands, .fa-classic, .fa-duotone, .fa-light, .fa-regular, .fa-sharp, .fa-sharp-solid, .fa-solid, .fa-thin, .fab, .fad, .fal, .far, .fas, .fasl, .fasr, .fass, .fat {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
+}
+
+.fa-bell:before {
+    content: "\f0f3";
+}
+
 @media (max-width: 480px) and (max-height: 480px) {
   #header {
     --row-height: 35px;
